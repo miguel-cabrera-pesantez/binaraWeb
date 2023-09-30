@@ -1,0 +1,23 @@
+1._ revisar orden de la polilinea
+2._ cargar fullpp y cofopri crack
+3._  comando fullpp, altura escogemos numeros, seleccionamos dimencion, deseleccionar circulo en vertice, primer pick para cuadro, horario o antororario las cotas salen fuera o adentro del poligono
+4._ borro los angulos  texto de en medio color 150 y puntos, de aqui saco las cotas, estilo del texto de la cota  elegante 
+5._ cargamos cuadro y comando cuadro, selecciono polilinea , sacamos el  cuadro
+6-: la imagen desde external references a 45 
+
+el excel con century gotic en 8  de tamaño 
+las coordenadas y infor en layer 0, pegar y pegado especial y selecciono autocad entities
+punto = 10 / x = 20/ y = 20  grosor de linea 2
+
+seleccionar toda la lamina y en laingwight  todo en .2
+
+dibujo lineweigth  en 0.5 excpeto el sitio en 0.3
+
+---comandos
+
+point para puntos
+_DDPTYPE  --puntos
+matchpro   estilos
+
+reference layer para las grilla 
+scal bar para la escala grafica
