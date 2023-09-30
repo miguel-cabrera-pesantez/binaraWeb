@@ -1,0 +1,822 @@
+@import '../../../../../core/styles/global-styles';
+@import '../../../../../core/styles/mixins';
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $fuente_principal;
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.container {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+  margin-top: calc($separacion / 2);
+  margin-bottom: calc($separacion / 2);
+}
+
+/* SABIAS QUE */
+.sabias {
+  background-color: $verde;
+  font-size: 2.4rem;
+  padding: 3rem;
+  color: $blanco;
+  border-radius: 2rem;
+
+  blockquote {
+    padding-left: 5rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      background-image: url("/assets/img/comilla.svg");
+      background-repeat: no-repeat;
+      width: 4rem;
+      height: 6rem;
+      display: block;
+      position: absolute;
+      left: -2%;
+    }
+  }
+
+  p {
+    text-align: right;
+    color: $blanco;
+    font-style: italic;
+  }
+
+  h3 {
+    font-weight: $bold;
+    margin: 0;
+  }
+}
+
+/* QUIENES SOMOS */
+.quienes-somos {
+  /* background-image: url('/assets/img/portada_binara.png'); */
+  //background-image: url(https://www.biodisol.com/wp-content/uploads/2016/07/rsz_famosos-que-protegen-el-medio-ambiente-005751a58c8902e-1-678x381.jpg);
+  background-color: $negro;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .somos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    gap: 10rem;
+
+    .info-nosotros {
+
+      h2 {
+        color: #ffffff;
+        font-size: 2.6rem;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 20rem;
+          height: .6rem;
+          align-self: flex-end;
+          background-color: $azul;
+          margin-top: 2rem;
+        }
+      }
+
+      p {
+        color: #ffffff;
+        font-size: 1.5rem;
+      }
+    }
+
+    .nosotros-img {
+      align-items: center;
+
+      img {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+      }
+    }
+  }
+}
+
+/* MISION, VISION, NOSOTROS */
+.nosotros {
+
+  h2 {
+    font-size: 3.1rem;
+    font-weight: bolder;
+  }
+
+  .about-us {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 24px;
+    align-items: flex-start;
+
+    .mision,
+    .vision,
+    .nosotros {
+
+      /* flex: 1; */
+      padding: 20px;
+      border-radius: 1rem;
+      box-shadow: 0 2px 4px 2px #009A63;
+      margin: 10px;
+
+      h3 {
+        font-size: 2.5rem;
+        font-weight: 300;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .mision {
+      width: 485px;
+    }
+
+    .vision,
+    .nosotros {
+      width: 290px;
+    }
+  }
+}
+
+/* BLOG Styles */
+.entrada-blog {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  cursor: pointer;
+  margin-bottom: 4rem;
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 4px 4px #979695;
+  max-width: 120rem;
+
+  .imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img,
+    picture {
+      max-width: 80%;
+      margin: 0 auto;
+      height: auto;
+      border-radius: 1rem;
+    }
+  }
+
+  .texto-entrada {
+
+    h4 {
+      font-size: 2rem;
+      font-style: italic;
+    }
+
+    p,
+    span {
+      font-size: 1.8rem;
+    }
+
+    .paragraph {
+      max-width: 750px;
+
+      .content {
+
+        font-size: 1.5rem;
+        /* Tamaño de fuente fijo que desees */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        /* Número de líneas visibles antes de los puntos suspensivos */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+
+img,
+picture {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $fuente_principal;
+  margin: calc($separacion / 2) 0;
+  font-weight: 300;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.6rem;
+}
+
+/* BLOG */
+@include tablet {
+  .seccion-inferior {
+    display: grid;
+    column-gap: 2rem;
+  }
+}
+
+.texto-entrada {
+  a {
+    color: $negro;
+    margin-top: 2rem;
+    display: block;
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+
+  h4 {
+    margin: 0;
+    line-height: 1.4;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 15rem;
+      height: .5rem;
+      background-color: $verde;
+      margin-top: 1rem;
+    }
+  }
+
+  span {
+    color: $tomate;
+  }
+}
+
+/* PROYECTOS ACTIVOS */
+.article-container {
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 5px 6px #030405;
+  margin: 10px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.nota {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.background {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 32px;
+  /* Imagenes Slider */
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.637)), url('https://www.henkel.es/resource/image/1084248/16x9/1920/1080/7a7530443937d70f83dbb22c6423158c/F34BFB3EAF33429AAFA08601DD0B63E2/2020-06-05-d%C3%ADa-mundial-del-medio-ambiente-jpg.webp') no-repeat 0 50%;
+  //opacity: .75;
+  background-position: center;
+  background-size: cover;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  max-width: 1200px;
+  gap: 24px;
+
+  article {
+    max-width: 310px;
+    max-height: 530px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    border-radius: 16px;
+
+    a {
+      display: inline-flex;
+      color: var(#DD946F);
+      text-decoration: none;
+    }
+
+    h2 {
+      margin: 0 0 18px 0;
+      font-size: 1.6rem;
+      color: var(#261E5A);
+      transition: color 0.3s ease-out;
+    }
+
+    img {
+      max-width: 100%;
+      transform-origin: center;
+      transition: transform 0.4s ease-in-out;
+    }
+  }
+
+  figure {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+}
+
+.article-preview {
+  padding: 24px;
+  background: white;
+
+  .boton {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      margin: auto;
+      font-weight: bold;
+    }
+  }
+
+  .location {
+    text-align: center;
+  }
+
+  .tamañoParrafo {
+    font-size: 1.5rem;
+    /* Tamaño de fuente fijo que desees */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    /* Número de líneas visibles antes de los puntos suspensivos */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.articles article:hover img {
+  transform: scale(1.5);
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.add-project-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.btn {
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c5c5c5 -6px -6px 12px #ffffff;
+}
+
+.btn::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 9em;
+}
+
+/* SLIDER IMAGES */
+.projects {
+  max-width: 100%;
+}
+
+/* MEDIA RESPONSIVE */
+@media (max-width: 1130px) {
+
+  .articles article {
+    max-width: 280px;
+    max-height: 530px;
+  }
+
+  .article-preview p {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 7em;
+    height: 2.6em;
+    font-size: 1.3rem;
+  }
+
+  .entrada-blog .texto-entrada {
+
+    h4 {
+      font-size: 1.7rem;
+    }
+
+    p,
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  .nosotros {
+
+    .about-us {
+
+      .mision,
+      .vision,
+      .nosotros {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 990px) {
+
+  .entrada-blog .imagen img,
+  picture {
+    max-width: 90%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .slider-box {
+    width: 100%;
+
+    .texto {
+      top: 50px;
+      padding: 0 25px;
+
+      h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .nosotros .about-us .mision,
+  .vision,
+  .nosotros {
+
+    h3 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+
+  .sabias {
+    background-color: $verde;
+    font-size: 2.4rem;
+    padding: 3rem;
+    color: $blanco;
+    border-radius: 2rem;
+
+    blockquote {
+      font-size: 1.9rem;
+    }
+
+  }
+
+  .quienes-somos .somos {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 2rem;
+
+    .info-nosotros {
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+
+    .nosotros-img {
+      img {
+        max-width: 50%;
+        margin: 0 auto;
+        height: auto;
+      }
+    }
+  }
+
+  .entrada-blog .imagen img,
+  picture {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .nosotros {
+    .about-us {
+      flex-direction: column;
+      align-items: center;
+
+      .mision,
+      .vision,
+      .nosotros {
+
+        h3 {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 715px) {
+
+  .nosotros {
+    h2 {
+      font-size: 3.1rem;
+    }
+  }
+
+  .nota {
+    h2 {
+      font-size: 3.1rem;
+    }
+
+    span {
+      font-size: 1.7rem;
+    }
+  }
+
+  .quienes-somos .somos {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 2rem;
+
+    .info-nosotros {
+      h2 {
+        font-size: 3.1rem;
+      }
+    }
+  }
+
+  .blog {
+    h2 {
+      font-size: 3.1rem;
+    }
+
+    .entrada-blog {
+      display: flex;
+      flex-direction: column;
+
+      .imagen img,
+      picture {
+        max-width: 60%;
+        margin: 0 auto;
+        height: auto;
+      }
+    }
+  }
+
+  .btn {
+    width: 7em;
+    height: 2.6em;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .sabias {
+
+    blockquote {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+
+  .quienes-somos .somos {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 2rem;
+
+    .info-nosotros {
+      h2 {
+        font-size: 2.8rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .nosotros-img {
+      img {
+        max-width: 50%;
+        margin: 0 auto;
+        height: auto;
+      }
+    }
+  }
+
+  .nosotros {
+    h2 {
+      font-size: 2.8rem;
+    }
+  }
+
+  .blog {
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    .entrada-blog {
+
+      .imagen img,
+      picture {
+        max-width: 80%;
+        margin: 0 auto;
+        height: auto;
+      }
+
+      .texto-entrada {
+
+        h4 {
+          font-size: 1.6rem;
+        }
+
+        p,
+        span {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  .nota {
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  .articles article {
+    max-width: 260px;
+    max-height: 475px;
+  }
+
+  .nosotros .about-us {
+    flex-direction: column;
+    align-items: center;
+
+    .mision,
+    .vision,
+    .nosotros {
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+
+  .entrada-blog {
+
+    .imagen img,
+    picture {
+      max-width: 100%;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    .texto-entrada {
+
+      h4 {
+        font-size: 1.5rem;
+      }
+
+      p,
+      span {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .article-preview p {
+    font-size: 1rem;
+  }
+
+  .nosotros .about-us {
+    flex-direction: column;
+    align-items: center;
+
+    .mision,
+    .vision,
+    .nosotros {
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+}

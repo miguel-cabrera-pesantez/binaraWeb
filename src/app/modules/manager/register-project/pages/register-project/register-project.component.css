@@ -1,0 +1,82 @@
+
+
+.image-preview {
+  width: 300px;
+  /* Ancho deseado */
+  height: 200px;
+  /* Altura deseada */
+  border: 2px solid #ccc;
+  background-color: #fff;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+input[readonly] {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+input[readonly]:hover {
+  background-color: #e5e5e5;
+}
+
+
+input[type="text"],
+input[type="date"],
+textarea {
+  transition: border 0.3s, box-shadow 0.3s;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+
+}
+
+.btn-eliminarobj {
+  background-color: red;
+  color: black;
+  border: none;
+  font-size: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.btn-eliminarobj:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.form-obj {
+  display: flex;
+  align-items: center;
+}
+
+.btn-addobj {
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  box-shadow: 12px;
+}
+
+.btn-addobj:hover {
+  background-color: black;
+
+}
+/* Estilos de ejemplo para el Snackbar de éxito */
+.success-snackbar {
+  background-color: #4caf50; /* Color de fondo verde (ajusta según tus preferencias) */
+  color: white; /* Color del texto (ajusta según tus preferencias) */
+}

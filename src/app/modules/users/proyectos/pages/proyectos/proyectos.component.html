@@ -1,0 +1,49 @@
+<body>
+    <div class="background">
+        <span class="centering">
+            <section class="articles">
+
+                <article *ngFor="let project of projects" class="article-container">
+                    <div class="image-container">
+                        <figure>
+                            <img [src]="baseUrl + '/imagen/proyecto/'+ project.portada"
+                                alt="Portada de {{project.titulo}}" title="Portada de {{project.titulo}}" />
+                        </figure>
+                    </div>
+                    <div class="article-preview">
+                        <h2>{{ project.titulo }}</h2>
+                        <p class="location p1" *ngIf="project.mapas && project.mapas.length > 0">{{ getProvincia(project.mapas[0].lugar) }}
+                        </p>
+                        <p class="tamañoParrafo">{{ project.parrafoUno }}</p>
+                        <div class="boton">
+                            <button (click)="goToArticle(project.uid)" class="btn">
+                                {{'Leer más' | translate | async}}
+                            </button>
+                        </div>
+                        <div class="action-buttons" *ngIf="roluser === 'ADMIN_ROLE'">
+                            <button class="edit-button" title="Editar" (click)="editarproyecto(project)">
+                                ✎
+                            </button>
+                            <button class="delete-button" title="Eliminar" (click)="confirmDeleteProject(project)">
+                                <span *ngIf="project.visible">🗑</span>
+                                <span *ngIf="!project.visible">✓</span>
+                            </button>
+                            <div *ngIf="isConfirmVisible" class="custom-confirm">
+                                <div class="confirm-content">
+                                    <p>{{ confirmMessage }}</p>
+                                    <button (click)="confirm()">Confirmar</button>
+                                    <button (click)="cancel()">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </span>
+    </div>
+    <span class="add-button" *ngIf="roluser === 'ADMIN_ROLE'">
+        <button class="add-project-button" (click)="abrirSheet()">Añadir Proyecto</button>
+    </span>
+
+</body>

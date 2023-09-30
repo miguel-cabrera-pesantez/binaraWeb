@@ -1,0 +1,115 @@
+<body>
+
+    <br>
+    <!-- SABIAS -->
+    <div class="sabias container">
+        <h3>{{'Sabías que...?' | translate | async}}</h3>
+        <div class="sabias">
+            <blockquote>{{sabias | translate | async}}</blockquote>
+            <p>{{'- Autor desconocido' | translate | async}}</p>
+        </div>
+    </div>
+    <br>
+
+    <!-- QUIENES SOMOS -->
+    <div class="quienes-somos">
+        <div class="container somos">
+            <div class="info-nosotros">
+                <a>
+                    <h2>{{'QUIENES SOMOS' | translate | async}}</h2>
+                    <p>{{quienes_somos_parrU | translate | async}} <br><br>{{quienes_somos_parrD | translate | async}}
+                        <p>
+                </a>
+            </div>
+            <div class="nosotros-img">
+                <img src="https://www.pngplay.com/wp-content/uploads/6/Save-Environment-PNG-Clipart-Background.png"
+                    alt="Preview" title="Preview" />
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="nosotros">
+        <h2>{{'QUE HACEMOS' | translate | async}}</h2>
+        <div class="container about-us">
+
+            <div class="vision">
+                <h3>{{'VISIÓN' | translate | async}}</h3>
+                <p>{{vision.texto1 | translate | async}}</p>
+            </div>
+            <div class="mision">
+                <h3>{{'MISIÓN' | translate | async}}</h3>
+                <p>{{mission.texto1 | translate | async}}</p>
+            </div>
+            <div class="nosotros">
+                <h3>{{'SOBRE NOSOTROS' | translate | async}}</h3>
+                <p>{{aboutUs.texto1 | translate | async}}</p>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <div class="nota">
+        <h2>{{'Proyectos en Marcha' | translate | async}}</h2>
+        <span>{{'Sembrando esperanza y vida en cada árbol que crece, para un mundo más verde y sostenible!' | translate
+            | async}}</span>
+    </div>
+
+    <div class="background">
+        <span class="centering">
+            <section class="articles">
+
+                <article *ngFor="let project of projects" class="article-container">
+                    <div class="image-container">
+                        <figure>
+                            <img [src]="baseUrl + '/imagen/proyecto/'+ project.portada"
+                                alt="Portada de {{project.titulo}}" title="Portada de {{project.titulo}}" />
+                        </figure>
+                    </div>
+                    <div class="article-preview">
+                        <h2>{{ project.titulo }}</h2>
+                        <p class="location" *ngIf="project.mapas && project.mapas.length > 0">{{
+                            getProvincia(project.mapas[0].lugar) }}
+                        </p>
+                        <p class="tamañoParrafo">{{ project.parrafoUno }}</p>
+                        <div class="boton">
+                            <button (click)="goToArticle(project.uid)" class="btn">
+                                {{'Leer mas' | translate | async}}
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </span>
+    </div>
+    <br>
+
+    <!-- BLOGS -->
+    <div class="container seccion-inferior">
+        <div class="blog">
+            <h2>{{'BLOG' | translate | async}}</h2>
+
+            <article *ngFor="let blog of blogs" id="abrir-blog" class="entrada-blog" (click)="onDivClick(blog._id)">
+                <div class="imagen">
+                    <picture>
+                        <img [src]="blog.foto" alt="Portada de {{blog.titulo}}" title="Portada de {{blog.titulo}}" />
+                    </picture>
+                </div>
+                <div class="texto-entrada">
+                    <a>
+                        <h4>{{ blog.titulo }}</h4>
+                        <p>{{'Escrito el: ' | translate | async}}<span>{{ blog.fecha | date: 'dd-MM-yyyy'}}</span>
+                            {{'Por:' | translate | async}}
+                            <span>{{ blog.nombre_autor }}, {{ blog.apellido_autor }}</span>
+                        </p>
+                        <div class="paragraph">
+                            <p class="content"> {{ blog.parrafo }}</p>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
